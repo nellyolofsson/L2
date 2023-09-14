@@ -19,7 +19,7 @@ export class Calculator {
       return 0
     }
     // filteredData är en array med objekt, och varje objekt har en egenskap SEK_per_kWh.
-    // totalSum beräknas genom att använda metoden reduce för att iterera över arrayen 
+    // totalSum beräknas genom att använda metoden reduce för att iterera över arrayen
     // filteredData.length används för att få antalet objekt i arrayen filteredData, vilket representerar det totala antalet priser.
     // averagePrice beräknas sedan genom att dela totalSum (summan av alla priser) med filteredData.length, vilket ger dig det genomsnittliga priset.
 
