@@ -26,16 +26,36 @@ export class PriceStatisticsGenerator {
     const priceStatistics = {}
     for (const regionCode in todayData) {
       const prices = todayData[regionCode].prices
-      // Calculate
       const averagePrice = this.#calculator.calculateAvaragePrice(prices)
       const minPrice = this.#calculator.calculateMinimumPrice(prices)
       const maxPrice = this.#calculator.calculateMaximumPrice(prices)
+      const medianPrice = this.#calculator.calculateMedianPrice(prices)
+      const standardDeviation = this.#calculator.calculateStandardDeviation(prices)
 
       // Store the average/min/max price in the object
       priceStatistics[regionCode] = {
         averagePrice,
         minPrice,
-        maxPrice
+        maxPrice,
+        medianPrice,
+        standardDeviation
+      }
+    }
+    return priceStatistics
+  }
+
+  /**
+   * Generates statistics for today's electricity price data in hours.
+   *
+   * @returns {object} An object containing price statistics for today's hours.
+   */
+  async generateHourPriceForToday () {
+    const todayData = await this.#dataLoader.getTodayPrice()
+    const priceStatistics = {}
+    for (const regionCode in todayData) {
+      const prices = todayData[regionCode].prices
+      priceStatistics[regionCode] = {
+        prices
       }
     }
     return priceStatistics
@@ -44,10 +64,13 @@ export class PriceStatisticsGenerator {
   /**
    * Generates statistics for historical electricity price data.
    *
+   * @param {number} year  - the year.
+   * @param {number} month - the month.
+   * @param  {number} day - the day.
    * @returns {object} An object containing historical price statistics.
    */
-  async generateHistoricalPriceStatistics () {
-    const todayData = await this.#dataLoader.getHistoricalPrice(2023, '08', '09')
+  async generateHistoricalPriceStatistics (year, month, day) {
+    const todayData = await this.#dataLoader.getHistoricalPrice(year, month, day)
     const priceStatistics = {}
     for (const regionCode in todayData) {
       const prices = todayData[regionCode].prices
@@ -55,11 +78,35 @@ export class PriceStatisticsGenerator {
       const averagePrice = this.#calculator.calculateAvaragePrice(prices)
       const minPrice = this.#calculator.calculateMinimumPrice(prices)
       const maxPrice = this.#calculator.calculateMaximumPrice(prices)
+      const medianPrice = this.#calculator.calculateMedianPrice(prices)
+      const standardDeviation = this.#calculator.calculateStandardDeviation(prices)
       // Store the average/min/max price in the object
       priceStatistics[regionCode] = {
         averagePrice,
         minPrice,
-        maxPrice
+        maxPrice,
+        medianPrice,
+        standardDeviation
+      }
+    }
+    return priceStatistics
+  }
+
+  /**
+   * Generates statistics for historical electricity price data.
+   *
+   * @param {number} year  - the year.
+   * @param {number} month - the month.
+   * @param  {number} day - the day.
+   * @returns {object} An object containing historical price statistics.
+   */
+  async generateHourPriceHistorical (year, month, day) {
+    const todayData = await this.#dataLoader.getHistoricalPrice(year, month, day)
+    const priceStatistics = {}
+    for (const regionCode in todayData) {
+      const prices = todayData[regionCode].prices
+      priceStatistics[regionCode] = {
+        prices
       }
     }
     return priceStatistics
