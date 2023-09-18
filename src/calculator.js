@@ -10,7 +10,6 @@ export class Calculator {
    */
   calculateAvaragePrice (data) {
     this.faultHandling(data)
-    // Flatten the array of price objects into a single array
     // Använder flat() för att göra data till en array
     const flattenedPriceData = data.flat()
     // Plockar ut data som jag behöver
@@ -18,14 +17,60 @@ export class Calculator {
     if (filteredData.length === 0) {
       return 0
     }
-    // filteredData är en array med objekt, och varje objekt har en egenskap SEK_per_kWh.
-    // totalSum beräknas genom att använda metoden reduce för att iterera över arrayen
-    // filteredData.length används för att få antalet objekt i arrayen filteredData, vilket representerar det totala antalet priser.
-    // averagePrice beräknas sedan genom att dela totalSum (summan av alla priser) med filteredData.length, vilket ger dig det genomsnittliga priset.
 
     const totalSum = filteredData.reduce((sum, item) => sum + item.SEK_per_kWh, 0)
     const averagePrice = totalSum / filteredData.length
     return averagePrice
+  }
+
+  /**
+   * Calculates the StandardDeviation price from the input data.
+   *
+   * @param {Array} data - An array of price data objects.
+   * @returns {number} The calculated StandardDeviation price.
+   */
+  calculateStandardDeviation (data) {
+    this.faultHandling(data)
+
+    const flattenedPriceData = data.flat()
+
+    const filterData = flattenedPriceData.filter(item => item.SEK_per_kWh !== undefined).map(item => item.SEK_per_kWh)
+
+    if (filterData.length === 0) {
+      return 0
+    }
+    const mean = this.calculateAvaragePrice(data)
+    const difference = filterData.map(item => Math.pow(item - mean, 2))
+    const varriance = difference.reduce((sum, item) => sum + item, 0) / difference.length
+    return Math.sqrt(varriance)
+  }
+
+  /**
+   * Calculates the median price from the input data.
+   *
+   * @param {Array} data - An array of price data objects.
+   * @returns {number} The calculated median price.
+   */
+  calculateMedianPrice (data) {
+    this.faultHandling(data)
+
+    const flattenedPriceData = data.flat()
+
+    const filterData = flattenedPriceData.filter(item => item.SEK_per_kWh !== undefined).map(item => item.SEK_per_kWh)
+
+    if (filterData.length === 0) {
+      return 0
+    }
+
+    filterData.sort((a, b) => a - b)
+
+    const middleIndex = Math.floor(filterData.length / 2)
+
+    if (filterData.length % 2 === 0) {
+      return (filterData[middleIndex - 1] + filterData[middleIndex]) / 2
+    } else {
+      return filterData[middleIndex]
+    }
   }
 
   /**
