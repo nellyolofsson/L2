@@ -5,6 +5,15 @@ import { Filter } from './filter.js'
  * Pricedataloader class for fetching electricity price data.
  */
 export class PriceDataLoader {
+  #filter
+  /**
+   * Constructor for PriceDataLoader.
+   *
+   */
+  constructor () {
+    this.#filter = new Filter()
+  }
+
   /**
    * Fetches electricity price data for specified regions and date.
    *
@@ -38,7 +47,7 @@ export class PriceDataLoader {
 
     try {
       const regionData = await Promise.all(dataPromises)
-      return Filter.filterData(regionData)
+      return this.#filter.filterData(regionData)
     } catch (error) {
       console.error('Error fetching data:', error)
       throw error

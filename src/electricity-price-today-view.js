@@ -23,13 +23,14 @@ export class ElectricityPriceTodayView {
 
   /**
    * Displays the hourly electricity price for today in different regions.
+   *
    */
   async displayHourPrice () {
-    const priceStatisticsToday = await this.#priceStatistics.generateHourPriceForToday()
+    const priceStatisticsHour = await this.#priceStatistics.generateHourPriceForToday()
 
     try {
-      for (const regionCode in priceStatisticsToday) {
-        const stats = priceStatisticsToday[regionCode]
+      for (const regionCode in priceStatisticsHour) {
+        const stats = priceStatisticsHour[regionCode]
         this.displayRegionHourPrice(regionCode, stats)
       }
     } catch (error) {

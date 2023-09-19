@@ -8,7 +8,7 @@ export class Filter {
    * @param {Array} data - The input data to be filtered and transformed.
    * @returns {Array}- An array of filtered and transformed data objects.
    */
-  static filterData (data) {
+  filterData (data) {
     const filteredData = data.map(item => {
       return {
         region: item.region,

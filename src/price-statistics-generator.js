@@ -32,7 +32,6 @@ export class PriceStatisticsGenerator {
       const medianPrice = this.#calculator.calculateMedianPrice(prices)
       const standardDeviation = this.#calculator.calculateStandardDeviation(prices)
 
-      // Store the average/min/max price in the object
       priceStatistics[regionCode] = {
         averagePrice,
         minPrice,
@@ -74,13 +73,13 @@ export class PriceStatisticsGenerator {
     const priceStatistics = {}
     for (const regionCode in todayData) {
       const prices = todayData[regionCode].prices
-      // Calculate
+
       const averagePrice = this.#calculator.calculateAvaragePrice(prices)
       const minPrice = this.#calculator.calculateMinimumPrice(prices)
       const maxPrice = this.#calculator.calculateMaximumPrice(prices)
       const medianPrice = this.#calculator.calculateMedianPrice(prices)
       const standardDeviation = this.#calculator.calculateStandardDeviation(prices)
-      // Store the average/min/max price in the object
+
       priceStatistics[regionCode] = {
         averagePrice,
         minPrice,

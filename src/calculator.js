@@ -10,9 +10,7 @@ export class Calculator {
    */
   calculateAvaragePrice (data) {
     this.faultHandling(data)
-    // Använder flat() för att göra data till en array
     const flattenedPriceData = data.flat()
-    // Plockar ut data som jag behöver
     const filteredData = flattenedPriceData.filter(item => item.SEK_per_kWh !== undefined)
     if (filteredData.length === 0) {
       return 0
