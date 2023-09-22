@@ -25,20 +25,20 @@ Ytterligare en insikt som jag fick under reflektionen är användningen av ordet
 ## Reflektion funktioner (kapitel 3)
 
 
-| Namn och förklarning | Reflektion och regler från Clean Code |
-| -------------------- | ------------------------------------- |
-|                      |                                       |
-|                      |                                       |
-|                      |                                       |
-|                      |                                       |
-|                      |                                       |
-|                      |                                       |
-|                      |                                       |
-| …                    | …                                     |
-|                      |                                       |
-|                      |                                       |
-|                      |                                       |
-|                      |                                       |
+| Namn och förklarning             | Reflektion och regler från Clean Code |
+| -------------------------------- | ------------------------------------- |
+| #displayComparisonHourly, metod. | Small!                                |
+|                                  | "Small!" från Clean Code, första reglen är att metoder/funktioner ska vara korta. Metoden #displayComparisonHourly i min kod är ett exempel på en metod som jag skulle kunna förbättra enligt reglen om små metoder. Trots att den inte är särskilt lång, består den av cirka 30 rader kod enligt min uppskattning, och det gör den till den längsta metoden i den här klassen. Denna metod ansvarar för att jämföra timvis elprisdata mellan två olika regioner och visar resultatet. Även om metoden är relativt kort, skulle den kunna följa reglen om små metoder ännu bättre genom att bryta ut vissa av de logiska blocken i mindre metoder. Det skulle göra koden mer läsbar. ![displayComparisonHourly](display.png)                                       |
+|                                  |                                       |
+| compareHistoricalData, metod.    | Function Argments                     |
+|                                  | Metoden "compareHistoricalData" har ett relativt högt antal argument, nämligen åtta. Detta bryter mot reglen om att minimera antalet argument, vilket Clean Code betonar. Enligt boken är det idealiskt att ha noll argument för en funktion, och om du har tre eller fler argument, bör du överväga att omstrukturera koden för att minska antalet. Detta kan också göra koden mer sårbar för fel och svårare att testa, eftersom man måste hantera olika kombinationer av argumentvärden. Jag kommer definitivt att skriva om denna metod om jag hinner för att göra koden mer i linje med reglerna och därmed kommer de bli lättare att testa och även lättare att underhålla.                                    |
+|                                  |                                       |
+|#displayRegionHistoricalData      | Use Descriptive Names                 |
+|                                  | "Metoden "displayRegionHistoricalData" har ett långt och beskrivande namn. Enligt boken är det viktigt att inte vara rädd för att skapa långa metodnamn, eftersom ett tydligt och beskrivande namn är bättre än en lång kommentar. Genom att använda sådana namn har jag märkt att koden blir mycket mer förståelig, och det sparar mig mycket tid och ansträngning när jag arbetar med koden.                                 |
+|                                  |                                       |
+|                                  |                                       |
+|                                  |                                       |
+|                                  |                                       |
 
 ## Reflektion av kapitel 3
 
