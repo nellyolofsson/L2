@@ -25,15 +25,16 @@ The Swedish Electricity Price Calculator is a Node.js module that allows you to 
 
 You can install the Swedish Electricity Price Calculator using npm:
 
-bash
+```bash
 npm install swedish-electricity-prices
-
+```
 
 ## Usage 
 
 ### Fetching-electricity-price-data-today
 
 #### Code Example:
+```javascript
 
 import { ElectricityPriceTodayView } from '../src/electricity-price-today-view.js'
 const display = new ElectricityPriceTodayView()
@@ -96,10 +97,12 @@ console.log(fetchHour)
     ]
   }
 ]
+```
 
 #### Code Example:
+```javascript
 
-Or you can choose to get all the hour prices for today in a nicer way, then you will get prices for all the regions for today.
+// Alternatively, you can opt for a more user-friendly approach to obtain today's hourly prices for all regions.
 const display = new ElectricityPriceTodayView()
 
 const printHourDataToday = await display.printHourDataToday()
@@ -118,10 +121,12 @@ End Time: 2023-09-26 02:00:00
 SEK_per_kWh: -0.04732
 EUR_per_kWh: -0.00403
 
+```
+
 ### Fetching-electricity-price-data-historical
 
 #### Code Example:
-
+```javascript
 import { ElectricityPriceHistoricalView } from '../src/electricity-price-historical-view.js'
 
 const display = new ElectricityPriceHistoricalView()
@@ -189,9 +194,10 @@ console.log(fetchDataHourHistorical)
   }
 ]
 
+```
 #### Code Example:
-
-Or you can choose to get all the hour prices historical in a nicer way, then you will get prices for all the regions for the date that you pickt.
+```javascript
+// Alternatively, you can select a more convenient method to retrieve historical hourly prices for all regions on the date you've chosen.
 import { ElectricityPriceHistoricalView } from '../src/electricity-price-historical-view.js'
 
 const display = new ElectricityPriceHistoricalView()
@@ -215,11 +221,11 @@ Start Time: 2023-09-15 01:00:00
 End Time: 2023-09-15 02:00:00
 SEK_per_kWh: 0.16596
 EUR_per_kWh: 0.01391
-
+```
 ### Calculating-Price-Statistics-Today
 
 #### Code Example:
-
+```javascript
 import { ElectricityPriceTodayView } from '../src/electricity-price-today-view.js'
 const display = new ElectricityPriceTodayView()
 const fetchDataCalculation = await display.fetchTodayDataCalculation()
@@ -254,10 +260,10 @@ console.log(fetchDataCalculation)
     standardDeviation: 0.9257526624395358
   }
 }
-
+```
 #### Code Example:
-
-Or you can choose to get all caluclations for today in a nicer way, then you will get todays calculation for all the regions.
+```javascript
+// Alternatively, you can opt for a more user-friendly approach to obtain calculations for today, which will provide calculations for all regions on the current day.
 import { ElectricityPriceTodayView } from '../src/electricity-price-today-view.js'
 const display = new ElectricityPriceTodayView()
 const printDataCalculation = await display.printTodayDataCalculation()
@@ -291,10 +297,11 @@ Min Price: -0.04732
 Max Price: 3.03075
 Median Price: 1.0668199999999999
 Standard Deviation Price: 0.9257526624395358
-
+```
 ### Calculating-price-statistics-historical
 
 #### Code Example:
+```javascript
 import { ElectricityPriceHistoricalView } from '../src/electricity-price-historical-view.js'
 
 const display = new ElectricityPriceHistoricalView()
@@ -337,9 +344,10 @@ console.log(fetchDataHistorical)
     standardDeviation: 0.34217508620075343
   }
 }
-
+```
 #### Code Example:
-Or you can choose to get all caluclations historical in a nicer way, then you will get the historical calculation for all the regions.
+```javascript
+// Alternatively, you can choose to obtain all historical calculations in a more convenient manner, which will provide historical calculations for all regions.
 
 import { ElectricityPriceHistoricalView } from '../src/electricity-price-historical-view.js'
 
@@ -381,11 +389,41 @@ Min Price: 0.75033
 Max Price: 2.2653
 Median Price: 1.1719650000000001
 Standard Deviation Price: 0.34217508620075343
+```
+### Comparing-prices
+
+#### Code Example:
+```javascript
+import { ElectricityPriceHistoricalView } from '../src/electricity-price-historical-view.js'
+
+const displayHistorical = new ElectricityPriceHistoricalView()
+
+const year1 = 2023
+const month1 = '08'
+const day1 = '16'
+
+const year2 = 2023
+const month2 = '09'
+const day2 = '18'
+
+const regionCode1 = '1'
+const regionCode2 = '3'
+
+displayHistorical.compareHistoricalData(year1, month1, day1, year2, month2, day2, regionCode1, regionCode2)
+
+Hourly Price Comparison between Region 1 and Region 3:
+Hour: 2023-08-16 00:00:00 - 2023-09-18 00:00:00
+Price Difference (SEK_per_kWh) in Region 1: 0.06711
 
 
+Hour: 2023-08-16 01:00:00 - 2023-09-18 01:00:00
+Price Difference (SEK_per_kWh) in Region 1: 0.07214999999999999
 
-## Comparing-prices
 
+Hour: 2023-08-16 02:00:00 - 2023-09-18 02:00:00
+Price Difference (SEK_per_kWh) in Region 1: 0.06018
 
+// And so on...
+```
 ## Examples
 
