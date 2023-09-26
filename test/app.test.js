@@ -37,3 +37,38 @@ try {
 } catch (error) {
   console.error('Test failed: It should not have thrown an error for valid array input.')
 }
+
+if (averagePrice < 1.17002 && averagePrice > 1.17001) {
+  console.log(`Test passed: Average Price: ${averagePrice} matches the expected value.`)
+} else {
+  console.log(`Test falied: Average Price: ${averagePrice} does not match the expected value.`)
+}
+
+const expectedMedianPrice = 1.15741
+if (medianPrice === expectedMedianPrice) {
+  console.log(`Test passed: Median Price: ${medianPrice} matches the expected value.`)
+} else {
+  console.log(`Test failed: Median Price: ${medianPrice} does not match the expected value.`)
+}
+
+// Test for minimumPrice
+const expectedMinimumPrice = 1.14894
+if (minimumPrice === expectedMinimumPrice) {
+  console.log(`Test passed: Minimum Price: ${minimumPrice} matches the expected value.`)
+} else {
+  console.log(`Test failed: Minimum Price: ${minimumPrice} does not match the expected value.`)
+}
+
+// Test for maximumPrice
+const expectedMaximumPrice = 1.2037
+if (maximumPrice === expectedMaximumPrice) {
+  console.log(`Test passed: Maximum Price: ${maximumPrice} matches the expected value.`)
+} else {
+  console.log(`Test failed: Maximum Price: ${maximumPrice} does not match the expected value.`)
+}
+const expectedStandardDeviation = 0.024067411345819627
+if (standardDeviationPrice === expectedStandardDeviation) {
+  console.log(`Test passed: Standard Deviation Price: ${standardDeviationPrice} matches the expected value.`)
+} else {
+  console.log(`Test failed: Standard Deviation Price: ${standardDeviationPrice} does not match the expected value.`)
+}
