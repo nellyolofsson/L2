@@ -1,3 +1,6 @@
+All version numbering and releases are available on npmjs.com. Link to npmjs.com: 
+https://www.npmjs.com/package/swedish-electricity-prices-region?activeTab=readme
+
 # Swedish Electricity Price Calculator
 
 The Swedish Electricity Price Calculator is a Node.js module that allows you to fetch and calculate electricity prices in Sweden. It provides historical data, price calculations, and the ability to compare prices across different regions.
@@ -17,6 +20,7 @@ The Swedish Electricity Price Calculator is a Node.js module that allows you to 
    - [Fetching Electricity Price Data Today](#fetching-electricity-price-data)
    - [Fetching Electricity Price Data Historical](#fetching-electricity-price-data-historical)
    - [Comparing Prices](#comparing-prices)
+4. [License](#license)
 
 ## Installation
 
@@ -199,6 +203,10 @@ const regionCode2 = '3'
 displayHistorical.compareHistoricalData(year1, month1, day1, year2, month2, day2, regionCode1, regionCode2)
 
 ```
+## License
+
+This project is licensed under the [ISC License](LICENSE.md) - see the [license file](LICENSE.md) for details.
+
 
 
 
