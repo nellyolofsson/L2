@@ -3,7 +3,7 @@
 ## Caluclator klassen
 
 Test 1.
-1. Testa om calculateAvaragePrice - metoden fungerar korrekt med en array med negativa/positiva helttal. 
+1. Testa om calculateAvaragePrice - metoden fungerar korrekt med en array med negativa/positiva heltal. 
 2. Lägger till en array med bara negativa tal/ positiva tal. ![negativatal](./images/negativa.png) och ![positivatal](./images/positiva.png)
 3. Förväntat resultat: Beräknad genomsnittlig pris för negativa och positiva heltal. ![calc](./images/calc.png) ![positvcalc](./images/positivcalc.png)
 
@@ -45,7 +45,7 @@ Test 1.
 
 ## PriceLoader klassen
 
-# Metoden getTodayPrice, testat genom konsolen.  
+# Metoden getTodayPrice, testas genom konsolen.  
 const price = new PriceLoader()
 const test = await price.getTodayPrice()
 console.log(test) 
@@ -588,7 +588,7 @@ Max Price: 0.12
 Median Price: 0.1323
 Standard Deviation Price: 0.1023
 
-# Metoden displayHourPriceHistorical testat i konsolen.
+# Metoden displayHourPriceHistorical testas i konsolen.
 
 const display = new ElectricityPriceHistoricalView()
 const stats = {
@@ -699,7 +699,7 @@ Price Difference (SEK_per_kWh) in Region 0: 0.06711
 
 Hour: 2023-08-16 01:00:00 - 2023-09-18 01:00:00
 Price Difference (SEK_per_kWh) in Region 0: 0.07214999999999999
-4. De förväntade datan för alla regioner kom med i konsolen men ansåg att det var för mycket att visa.
+4. De förväntade data för alla regioner kom med i konsolen men ansåg att det var för mycket att visa.
 
 # Metoden displayComparisonHourly testas i konsolen.
 

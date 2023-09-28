@@ -1,4 +1,5 @@
 import { PriceStatisticsGenerator } from './price-statistics-generator.js'
+import { PriceLoader } from './price-loader.js'
 
 // Define region names for mapping region codes.
 const regionNames = {
@@ -13,38 +14,21 @@ const regionNames = {
  */
 export class ElectricityPriceTodayView {
   #priceStatistics
+  #dataloader
 
   /**
    * Initializes a new instance of ElectricityPriceTodayView.
    */
   constructor () {
     this.#priceStatistics = new PriceStatisticsGenerator()
+    this.#dataloader = new PriceLoader()
   }
 
   /**
    * Displays the hourly electricity price for today in different regions.
    *
    */
-  async displayHourPrice () {
-    const priceStatisticsHour = await this.#priceStatistics.generateHourPriceForToday()
-
-    try {
-      for (const regionCode in priceStatisticsHour) {
-        const stats = priceStatisticsHour[regionCode]
-        this.displayRegionHourPrice(regionCode, stats)
-      }
-    } catch (error) {
-      console.error('Error fetching or displaying data:', error)
-    }
-  }
-
-  /**
-   * Displays the hourly electricity price for a specific region.
-   *
-   * @param {number} regionCode - The code representing the region.
-   * @param {object} stats - Statistics data for the region.
-   */
-  async displayRegionHourPrice (regionCode, stats) {
+  async #displayHourPrice (regionCode, stats) {
     const regionName = regionNames[regionCode] || 'Unknown Region'
 
     console.log(`Price for Region: ${regionCode} (${regionName})`)
@@ -60,31 +44,15 @@ export class ElectricityPriceTodayView {
   }
 
   /**
-   * Displays today's electricity price data for different regions.
-   *
-   * @param {object} priceStatisticsToday - Today's price statistics data.
-   */
-  async displayTodayData (priceStatisticsToday) {
-    try {
-      for (const regionCode in priceStatisticsToday) {
-        const stats = priceStatisticsToday[regionCode]
-        this.displayRegionTodayData(regionCode, stats)
-      }
-    } catch (error) {
-      console.error('Error fetching or displaying data:', error)
-    }
-  }
-
-  /**
    * Displays today's electricity price data for a specific region.
    *
    * @param {number} regionCode - The code representing the region.
    * @param {object} stats - Statistics data for the region.
    */
-  displayRegionTodayData (regionCode, stats) {
+  #displayTodayData (regionCode, stats) {
     const regionName = regionNames[regionCode] || 'Unknown Region'
 
-    console.log('Today\'s Price:')
+    console.log('Today\'s Price Calculation:')
     console.log(`Region: ${regionCode} (${regionName})`)
     console.log(`Average Price: ${stats.averagePrice}`)
     console.log(`Min Price: ${stats.minPrice}`)
@@ -94,12 +62,11 @@ export class ElectricityPriceTodayView {
   }
 
   /**
-   * Fetches today's electricity price data.
+   * Handles errors and logs them.
    *
-   * @returns {Promise} - A promise that resolves to today's price data.
    */
-  async fetchTodayData () {
-    return await this.#priceStatistics.generateTodayPriceStatistics()
+  #handleError (error) {
+    console.error('Error fetching or displaying data:', error)
   }
 
   /**
@@ -107,10 +74,13 @@ export class ElectricityPriceTodayView {
    */
   async printTodayDataCalculation () {
     try {
-      const todayData = await this.fetchTodayData()
-      this.displayTodayData(todayData)
+      const todayData = await this.fetchTodayDataCalculation()
+      for (const regionCode in todayData) {
+        const stats = todayData[regionCode]
+        this.#displayTodayData(regionCode, stats)
+      }
     } catch (error) {
-      console.error('Error fetching or displaying data:', error)
+      this.#handleError(error)
     }
   }
 
@@ -119,10 +89,29 @@ export class ElectricityPriceTodayView {
    */
   async printHourDataToday () {
     try {
-      const hourPrice = await this.fetchTodayData()
-      this.displayHourPrice(hourPrice)
+      const hourPrice = await this.fetchHourData()
+      for (const regionCode in hourPrice) {
+        const stats = hourPrice[regionCode]
+        this.#displayHourPrice(regionCode, stats)
+      }
     } catch (error) {
-      console.error('Error fetching or displaying data:', error)
+      this.#handleError(error)
     }
+  }
+
+  /**
+   * Fetches today's electricity price data.
+   *
+   */
+  async fetchTodayDataCalculation () {
+    return await this.#priceStatistics.generateTodayPriceStatistics()
+  }
+
+  /**
+   * Fetches today's electricity price data.
+   *
+   */
+  async fetchHourData () {
+    return await this.#dataloader.getTodayPrice()
   }
 }

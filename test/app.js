@@ -1,7 +1,6 @@
 import { ElectricityPriceTodayView } from '../src/electricity-price-today-view.js'
 import { ElectricityPriceHistoricalView } from '../src/electricity-price-historical-view.js'
 
-const display = new ElectricityPriceHistoricalView()
 const displayHistorical = new ElectricityPriceHistoricalView()
 
 const year1 = 2023

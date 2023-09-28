@@ -1,17 +1,16 @@
 {
-  "name": "swedish-electricity-prices",
-  "version": "1.0.0",
+  "name": "swedish-electricity-prices-region",
+  "version": "1.0.1",
   "description": "",
-  "main": "app.js",
-  "browser": "app.js",
+  "main": "./src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/app.js",
-    "test": "node test/app.test.js"
+    "start": "node src/index.js",
+    "test": "node test/index.test.js"
   },
-  "publishConfig": {
-    "registry": "https://github.com/nellyolofsson/L2"
-  },
+  "files": [
+    "src"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
