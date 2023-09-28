@@ -28,22 +28,23 @@ npm install swedish-electricity-prices-region
 
 ## Methods
 In ElectricityPriceTodayView.js, there are 4 methods that can be used to fetch and calculate electricity prices. These methods are:
-fetchHourData() - Fetches today's hourly prices for all regions in objects.
-fetchTodayDataCalculation() - Fetches today's price calculations for all regions in objects.
-printHourDataToday() - Prints today's hourly prices for all regions.
-printTodayDataCalculation() - Prints today's price calculations for all regions.
+
+`fetchHourData()` - Fetches today's hourly prices for all regions in objects.
+`fetchTodayDataCalculation()` - Fetches today's price calculations for all regions in objects.
+`printHourDataToday()` - Prints today's hourly prices for all regions.
+`printTodayDataCalculation()` - Prints today's price calculations for all regions.
 
 In ElectricityPriceHistoricalView.js, there are 4 methods that can be used to fetch and caluclate electricity prices, and 1 method that can be used to compare prices between regions. These methods are:
 
-fetchHistoricalHourPrice(year, month, day) - Fetches historical hourly prices for all regions in objects.
-fetchHistoricalData(year, month, day) - Fetches historical price calculations for all regions in objects.
-printHourDataHistorical(year, month, day) - Prints historical hourly prices for all regions.
-printHistoricalDataCalculation(year, month, day) - Prints historical price calculations for all regions.
-compareHistoricalData(year1, month1, day1, year2, month2, day2, regionCode1, regionCode2) - Prints a comparison of historical hourly prices between two regions.
+`fetchHistoricalHourPrice(year, month, day)` - Fetches historical hourly prices for all regions in objects.
+`fetchHistoricalData(year, month, day)` - Fetches historical price calculations for all regions in objects.
+`printHourDataHistorical(year, month, day)` - Prints historical hourly prices for all regions.
+`printHistoricalDataCalculation(year, month, day)` - Prints historical price calculations for all regions.
+`compareHistoricalData(year1, month1, day1, year2, month2, day2, regionCode1, regionCode2)` - Prints a comparison of historical hourly prices between two regions.
 
 ### Usage 
 
-#### Fetching-electricity-price-data-today
+### Fetching-electricity-price-data-today
 
 ##### Code Example:
 ```javascript
