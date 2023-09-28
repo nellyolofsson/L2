@@ -4,7 +4,7 @@ import { Calculator } from './calculator.js'
 /**
  * Price statistics generator class for electricity price data.
  */
-export class PriceStatisticsGenerator {
+export class PriceCalculatorGenerator {
   #priceLoader
   #calculator
   /**
@@ -22,7 +22,7 @@ export class PriceStatisticsGenerator {
    * @param {Array} prices - The price data to calculate statistics for.
    * @returns {object} An object containing price statistics.
    */
-  generatePriceStatistics (prices) {
+  #generatePriceCalculation (prices) {
     const averagePrice = this.#calculator.calculateAvaragePrice(prices)
     const minPrice = this.#calculator.calculateMinimumPrice(prices)
     const maxPrice = this.#calculator.calculateMaximumPrice(prices)
@@ -42,12 +42,12 @@ export class PriceStatisticsGenerator {
    *
    * @returns {object} An object containing price statistics for today.
    */
-  async generateTodayPriceStatistics () {
+  async generateTodayPriceCalculation () {
     const todayData = await this.#priceLoader.getTodayPrice()
     const priceStatistics = {}
     for (const regionCode in todayData) {
       const prices = todayData[regionCode].prices
-      priceStatistics[regionCode] = this.generatePriceStatistics(prices)
+      priceStatistics[regionCode] = this.#generatePriceCalculation(prices)
     }
     return priceStatistics
   }
@@ -60,12 +60,12 @@ export class PriceStatisticsGenerator {
    * @param {number} day - The day.
    * @returns {object} An object containing historical price statistics.
    */
-  async generateHistoricalPriceStatistics (year, month, day) {
+  async generateHistoricalPriceCalclation (year, month, day) {
     const historicalData = await this.#priceLoader.getHistoricalPrice(year, month, day)
     const priceStatistics = {}
     for (const regionCode in historicalData) {
       const prices = historicalData[regionCode].prices
-      priceStatistics[regionCode] = this.generatePriceStatistics(prices)
+      priceStatistics[regionCode] = this.#generatePriceCalculation(prices)
     }
     return priceStatistics
   }

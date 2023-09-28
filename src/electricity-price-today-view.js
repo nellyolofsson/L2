@@ -1,4 +1,4 @@
-import { PriceStatisticsGenerator } from './price-statistics-generator.js'
+import { PriceCalculatorGenerator } from './price-calculator-generator.js'
 import { PriceLoader } from './price-loader.js'
 
 // Define region names for mapping region codes.
@@ -13,14 +13,14 @@ const regionNames = {
  * Represents a view for displaying electricity price information.
  */
 export class ElectricityPriceTodayView {
-  #priceStatistics
+  #priceCalculator
   #dataloader
 
   /**
    * Initializes a new instance of ElectricityPriceTodayView.
    */
   constructor () {
-    this.#priceStatistics = new PriceStatisticsGenerator()
+    this.#priceCalculator = new PriceCalculatorGenerator()
     this.#dataloader = new PriceLoader()
   }
 
@@ -104,7 +104,7 @@ export class ElectricityPriceTodayView {
    *
    */
   async fetchTodayDataCalculation () {
-    return await this.#priceStatistics.generateTodayPriceStatistics()
+    return await this.#priceCalculator.generateTodayPriceCalculation()
   }
 
   /**

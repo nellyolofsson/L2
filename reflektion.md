@@ -17,7 +17,7 @@
 |                                        |                                                                                                                                                                    |
 
 ## Reflektion av kapitel 2 
-Sammanfattningsvis verkar min kod följa många av de grundläggande principerna från boken. Under min reflektion insåg jag särskilt att min metod 'compareHistoricalData' har en för stor mängd argument, målet hade varit att ha högst två argument. Jag insåg också att jag behöver förbättra namngivningen kring mina argument för att göra koden mer begriplig i denna metod.
+Sammanfattningsvis verkar min kod följa många av de grundläggande reglerna från boken. Under min reflektion insåg jag särskilt att min metod 'compareHistoricalData' har en för stor mängd argument, målet hade varit att ha högst två argument. Jag insåg också att jag behöver förbättra namngivningen kring mina argument för att göra koden mer begriplig i denna metod.
 Ytterligare en insikt som jag fick under reflektionen är användningen av ordet 'data', vilket jag har upptäckt att jag använder ganska ofta i mina metodnamn. Till exempel, en av mina metoder i det publika interfacet heter 'printHourDataHistorical'. För att undvika användningen av ordet 'data' skulle metodnamnet kunna se ut så här: 'printHistoricalHourlyElectricityPrices'.
 Även om min kod följer många av de regler ifrån Clean Code kapitel 2 föreslår, insåg jag att de finns mycket jag kan förbättras på.
 
@@ -44,9 +44,9 @@ Ytterligare en insikt som jag fick under reflektionen är användningen av ordet
 |                                  |                                       |
 
 ## Reflektion av kapitel 3
-Kapitel tre i boken hade jag lättare att förstå och reflektera över. Jag har tagit till mig flera viktiga regler, såsom att fokusera på små och väldefinierade funktioner samt att följa principer som "Use Descriptive Names", "Structured Programming," och "Extrahera Try/Catch-block." Jag ser bara fördelar med att skriva kod enligt dessa regler.
+I kapitel tre i boken hade jag lättare att förstå och reflektera över. Jag har tagit till mig flera viktiga regler, såsom att fokusera på små och väldefinierade funktioner samt att följa principer som "Use Descriptive Names", "Structured Programming," och "Extrahera Try/Catch-block." Jag ser bara fördelar med att skriva kod enligt dessa regler.
 Det mest lärorika för mig var hur man ska separera koden i mindre funktioner med specifika ansvarsområden. Att låta varje funktion göra så lite som möjligt kommer vara en utmaning, men jag ser hur det kan leda till en mer underhållbar kod. En annan viktig insikt var att följa reglerna om att minimera antalet argument i funktioner, idealiskt noll argument.
-Sammanfattningsvis tyckte jag att kapitel 3 var mer givande för mig. Jag känner mig bekväm med att testa att skriva kod på ett mer strukturerat sätt och ser fram emot att tillämpa dessa regler i mina framtida projekt. 
+Sammanfattningsvis tyckte jag att kapitel 3 var mer givande för mig. Jag känner mig bekväm med att testa att skriva kod på ett mer strukturerat sätt och ser fram emot att tillämpa dessa regler.
 
 ## Reflektion
 Mina egna erfarenheter är att jag följer boken till en viss del både från kapitel två och tre. Jag tillämpar bra namngivning på min klasser/metoder och använder mig av "Use Intention-Revealing Names", "Class Names", "Don’t add Gratuitous Context" och "Use Pronounceable Names" ifrån kapitel två. Det som jag lärde mig som jag inte tänkt på alls är att jag benämner mina argument väldigt lika i min metod "compareHistoricalData". Detta reflekterade jag över mer när jag läste om regeln "Make Meaningful Distinctions", detta är något jag verkligen kommer ta till mig. Jag kommer tillämpa dessa förändringar i framtiden och fortsätta att skriva bra metod/klass namn. 
@@ -55,7 +55,7 @@ När det gäller min kodkvalitet, så finns det delar som kan förbättras enlig
 
 En erfarenhet jag har reflekterat över är att jag omedvetet har lyckats följa vissa av reglerna från boken. Detta ser jag som positivt och som en bekräftelse på att jag kan bli bättre på att skriva strukturerad kod och skapa små funktioner/metoder som har ett tydligt syfte.
 
-När jag skrev mina testfall och gick igenom koden igen mer noggrant, stötte jag på en intressant upptäckt. Jag hittade två metoder i PriceStatisticsGenerator och två nästan identiska metoder i mina view klasser. Detta påminde mig starkt om reglen "Dont Repeat Yourself" (DRY). Jag reagerade direkt och omstrukturerade och tog bort denna duplicering av min kod. Denna erfarenhet påminde mig om vikten av att undvika kodupprening.
+När jag skrev mina testfall och gick igenom koden igen mer noggrant, stötte jag på en intressant upptäckt. Jag hittade två metoder i PriceCalculatorGenerator och två nästan identiska metoder i mina view klasser. Detta påminde mig starkt om reglen "Dont Repeat Yourself" (DRY). Jag reagerade direkt och omstrukturerade och tog bort denna duplicering av min kod. Denna erfarenhet påminde mig om vikten av att undvika kodupprening.
 
 Jag förstår syftet med boken och författarens avsikter, men jag inser att följa reglerna strikt kan vara utmanande. Jag håller med bokens regler till en viss grad. Vi har lärt oss att inkludera kommentarer enligt kodstandard, och jag anser att det är värdefullt att ha korta kommentarer över metoder. Jag planerar att ta bort omfattande kommentarer från min kod och istället använda kortfattade kommentarer som förklarar koden på ett koncist sätt, men jag kommer att behålla dem i någon form. Detta är min syn på användningen av kommentarer.
 

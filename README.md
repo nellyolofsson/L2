@@ -163,7 +163,7 @@ console.log(fetchDataHourHistorical)
 ```javascript
 
 // Alternatively, you can select a more convenient method to retrieve historical hourly prices for all regions on the date you've chosen.
-import { ElectricityPriceHistoricalView } from '../src/electricity-price-historical-view.js'
+import { ElectricityPriceHistoricalView } from 'swedish-electricity-prices-region/src/index.js'
 
 const display = new ElectricityPriceHistoricalView()
 

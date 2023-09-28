@@ -1,4 +1,4 @@
-import { PriceStatisticsGenerator } from './price-statistics-generator.js'
+import { PriceCalculatorGenerator } from './price-calculator-generator.js'
 import { PriceLoader } from './price-loader.js'
 
 const regionNames = {
@@ -12,14 +12,14 @@ const regionNames = {
  * Represents a view for displaying historical electricity price information.
  */
 export class ElectricityPriceHistoricalView {
-  #priceStatistics
+  #priceCalculator
   #dataloader
 
   /**
    * Initializes a new instance of ElectricityPriceHistoricalView.
    */
   constructor () {
-    this.#priceStatistics = new PriceStatisticsGenerator()
+    this.#priceCalculator = new PriceCalculatorGenerator()
     this.#dataloader = new PriceLoader()
   }
 
@@ -46,7 +46,7 @@ export class ElectricityPriceHistoricalView {
    *
    */
   async fetchHistoricalData (year, month, day) {
-    return await this.#priceStatistics.generateHistoricalPriceStatistics(year, month, day)
+    return await this.#priceCalculator.generateHistoricalPriceCalclation(year, month, day)
   }
 
   /**
