@@ -32,19 +32,19 @@ npm install swedish-electricity-prices-region
 
 ## Methods
 In ElectricityPriceTodayView.js, there are 4 methods that can be used to fetch and calculate electricity prices. These methods are:
-
-- `fetchHourData()` - Fetches today's hourly prices for all regions in objects.
-- `fetchTodayDataCalculation()` - Fetches today's price calculations for all regions in objects.
-- `printHourDataToday()` - Prints today's hourly prices for all regions.
-- `printTodayDataCalculation()` - Prints today's price calculations for all regions.
+ ### Fetching-electricity-price-data-today
+- `fetchHourData()` 
+- `fetchTodayDataCalculation()` 
+- `printHourDataToday()` 
+- `printTodayDataCalculation()` 
 
 In ElectricityPriceHistoricalView.js, there are 4 methods that can be used to fetch and caluclate electricity prices, and 1 method that can be used to compare prices between regions. These methods are:
-
-- `fetchHistoricalHourPrice(year, month, day)` - Fetches historical hourly prices for all regions in objects.
-- `fetchHistoricalData(year, month, day)` - Fetches historical price calculations for all regions in objects.
-- `printHourDataHistorical(year, month, day)` - Prints historical hourly prices for all regions.
-- `printHistoricalDataCalculation(year, month, day)` - Prints historical price calculations for all regions.
-- `compareHistoricalData(year1, month1, day1, year2, month2, day2, regionCode1, regionCode2)` - Prints a comparison of historical hourly prices between two regions.
+### Fetching-electricity-price-data-historical
+- `fetchHistoricalHourPrice(year, month, day)` 
+- `fetchHistoricalData(year, month, day)` 
+- `printHourDataHistorical(year, month, day)`
+- `printHistoricalDataCalculation(year, month, day)`
+- `compareHistoricalData(year1, month1, day1, year2, month2, day2, regionCode1, regionCode2)`
 
 ### Usage 
 
@@ -61,8 +61,6 @@ const fetchHour = await display.fetchHourData()
 console.log(fetchHour)
 // Output:
 // Example of Today's Hourly Prices:
-
-[
   {
     region: 'SE1',
     prices: [
@@ -75,47 +73,15 @@ console.log(fetchHour)
       [Object], [Object], [Object],
       [Object], [Object], [Object]
     ]
-  },
-  {
-    region: 'SE2',
-    prices: [
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object]
-    ]
-  },
-  {
-    region: 'SE3',
-    prices: [
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object]
-    ]
-  },
-  {
-    region: 'SE4',
-    prices: [
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object]
-    ]
-  }
-]
+  }  
+  // Object:
+   {
+      time_start: '2023-10-17T00:00:00+02:00',
+      time_end: '2023-10-17T01:00:00+02:00',
+      SEK_per_kWh: 0.04052,
+      EUR_per_kWh: 0.00351
+    }
+
 ```
 
 #### Code Example:
