@@ -18,11 +18,6 @@ export class PriceLoader {
   /**
    * Fetches electricity price data for specified regions and date.
    *
-   * @param {number} year - The year for which to fetch the data.
-   * @param {number} month - The month for which to fetch the data.
-   * @param {number} day - The day for which to fetch the data.
-   * @param {Array} regionCodes - An array of region codes to fetch data for.
-   * @returns {Promise} A promise that resolves to an array of filtered price data objects.
    */
   async #fetchDataElectricity (year, month, day, regionCodes) {
     const dataPromises = regionCodes.map(async (regionCode) => {
@@ -59,11 +54,6 @@ export class PriceLoader {
     return this.#fetchDataAndFilter(year, month, day, regionCodes)
   }
 
-  /**
-   * Fetches historical electricity price data for multiple regions.
-   *
-   * @returns {Array} A promise that resolves to an array of filtered historical price data objects.
-   */
   async getHistoricalPrice (year, month, day) {
     const regionCodes = ['SE1', 'SE2', 'SE3', 'SE4']
     return this.#fetchDataAndFilter(year, month, day, regionCodes)
@@ -72,12 +62,6 @@ export class PriceLoader {
   /**
    * Fetches and filters electricity price data for specified regions and date, handling errors.
    *
-   * @param {number} year - The year for which to fetch the data.
-   * @param {number} month - The month for which to fetch the data.
-   * @param {number} day - The day for which to fetch the data.
-   * @param {Array} regionCodes - An array of region codes to fetch data for.
-   * @returns {Promise} A promise that resolves to an array of filtered price data objects.
-   * @throws {Error} If there's an issue with fetching or processing the data.
    */
   async #fetchDataAndFilter (year, month, day, regionCodes) {
     try {

@@ -61,17 +61,10 @@ export class ElectricityPriceTodayView {
     console.log(`Standard Deviation Price: ${stats.standardDeviation}`)
   }
 
-  /**
-   * Handles errors and logs them.
-   *
-   */
   #handleError (error) {
     console.error('Error fetching or displaying data:', error)
   }
 
-  /**
-   * Prints today's electricity price data calculation.
-   */
   async printTodayDataCalculation () {
     try {
       const todayData = await this.fetchTodayDataCalculation()
@@ -84,9 +77,6 @@ export class ElectricityPriceTodayView {
     }
   }
 
-  /**
-   * Prints hourly electricity price data for today.
-   */
   async printHourDataToday () {
     try {
       const hourPrice = await this.fetchHourData()
@@ -99,18 +89,10 @@ export class ElectricityPriceTodayView {
     }
   }
 
-  /**
-   * Fetches today's electricity price data.
-   *
-   */
   async fetchTodayDataCalculation () {
     return await this.#priceCalculator.generateTodayPriceCalculation()
   }
 
-  /**
-   * Fetches today's electricity price data.
-   *
-   */
   async fetchHourData () {
     return await this.#dataloader.getTodayPrice()
   }

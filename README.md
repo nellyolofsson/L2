@@ -119,11 +119,9 @@ import { ElectricityPriceHistoricalView } from 'swedish-electricity-prices-regio
 
 const display = new ElectricityPriceHistoricalView()
 
-const year = 2023
-const month = '09'
-const day = '15'
+const selectedDate = '2023-07-16'
 
-const fetchDataHourHistorical = await display.fetchHistoricalHourPrice(year, month, day)
+const fetchDataHourHistorical = await display.fetchHistoricalHourPrice(selectedDate)
 
 console.log(fetchDataHourHistorical)
 
@@ -137,11 +135,9 @@ import { ElectricityPriceHistoricalView } from 'swedish-electricity-prices-regio
 
 const display = new ElectricityPriceHistoricalView()
 
-const year = 2023
-const month = '09'
-const day = '15'
+const selectedDate = '2023-07-16'
 
-const printDataHourHistorical = await display.printHourDataHistorical(year, month, day)
+const printDataHourHistorical = await display.printHourDataHistorical(selectedDate)
 
 console.log(printDataHourHistorical)
 

@@ -45,7 +45,8 @@ export class ElectricityPriceHistoricalView {
    * Fetches historical electricity price data for a specific date.
    *
    */
-  async fetchHistoricalData (year, month, day) {
+  async fetchHistoricalData (selectedDate = this.#getCurrentDate()) {
+    const [year, month, day] = selectedDate.split('-')
     return await this.#priceCalculator.generateHistoricalPriceCalclation(year, month, day)
   }
 
@@ -53,8 +54,17 @@ export class ElectricityPriceHistoricalView {
    * Fetches historical hourly electricity price data for a specific date.
    *
    */
-  async fetchHistoricalHourPrice (year, month, day) {
+  async fetchHistoricalHourPrice (selectedDate = this.#getCurrentDate()) {
+    const [year, month, day] = selectedDate.split('-')
     return await this.#dataloader.getHistoricalPrice(year, month, day)
+  }
+
+   #getCurrentDate() {
+    const currentDate = new Date()
+    const year = currentDate.getFullYear()
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0')
+    const day = String(currentDate.getDate()).padStart(2, '0')
+    return `${year}-${month}-${day}`
   }
 
   /**
