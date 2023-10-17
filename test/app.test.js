@@ -4,9 +4,9 @@ const calculate = new Calculator()
 
 // Sample data representing electricity prices
 const data = [
-  { SEK_per_kWh: 1.2037 },
-  { SEK_per_kWh: 1.15741 },
-  { SEK_per_kWh: 1.14894 }
+  { SEK_per_kWh: 1.2 },
+  { SEK_per_kWh: 1.15 },
+  { SEK_per_kWh: 1.14 }
 ]
 
 // Call the method with your data
@@ -37,14 +37,15 @@ try {
 } catch (error) {
   console.error('Test failed: It should not have thrown an error for valid array input.')
 }
+const expextedAveragePrice = 1.163333333333333
 
-if (averagePrice < 1.17002 && averagePrice > 1.17001) {
+if (averagePrice === expextedAveragePrice) {
   console.log(`Test passed: Average Price: ${averagePrice} matches the expected value.`)
 } else {
   console.log(`Test falied: Average Price: ${averagePrice} does not match the expected value.`)
 }
 
-const expectedMedianPrice = 1.15741
+const expectedMedianPrice = 1.15
 if (medianPrice === expectedMedianPrice) {
   console.log(`Test passed: Median Price: ${medianPrice} matches the expected value.`)
 } else {
@@ -52,7 +53,7 @@ if (medianPrice === expectedMedianPrice) {
 }
 
 // Test for minimumPrice
-const expectedMinimumPrice = 1.14894
+const expectedMinimumPrice = 1.14
 if (minimumPrice === expectedMinimumPrice) {
   console.log(`Test passed: Minimum Price: ${minimumPrice} matches the expected value.`)
 } else {
@@ -60,13 +61,13 @@ if (minimumPrice === expectedMinimumPrice) {
 }
 
 // Test for maximumPrice
-const expectedMaximumPrice = 1.2037
+const expectedMaximumPrice = 1.2
 if (maximumPrice === expectedMaximumPrice) {
   console.log(`Test passed: Maximum Price: ${maximumPrice} matches the expected value.`)
 } else {
   console.log(`Test failed: Maximum Price: ${maximumPrice} does not match the expected value.`)
 }
-const expectedStandardDeviation = 0.024067411345819627
+const expectedStandardDeviation = 0.02624669291337273
 if (standardDeviationPrice === expectedStandardDeviation) {
   console.log(`Test passed: Standard Deviation Price: ${standardDeviationPrice} matches the expected value.`)
 } else {
