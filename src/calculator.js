@@ -17,8 +17,9 @@ export class Calculator {
     }
 
     const totalSum = filteredData.reduce((sum, item) => sum + item.SEK_per_kWh, 0)
-    const averagePrice = totalSum / filteredData.length
-    return averagePrice
+    const averagePrice = (totalSum / filteredData.length)
+    const formattedAveragePrice = (parseFloat(averagePrice) * 100).toFixed(2)
+    return formattedAveragePrice
   }
 
   /**
