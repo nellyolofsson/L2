@@ -1,22 +1,18 @@
 import { Calculator } from '../src/calculator.js'
-
+import { ElectricityPriceTodayView } from '../src/electricity-price-today-view.js'
 const calculate = new Calculator()
+const priceLoader = new ElectricityPriceTodayView()
 
-// Sample data representing electricity prices
-const data = [
-  { SEK_per_kWh: 1.2 },
-  { SEK_per_kWh: 1.15 },
-  { SEK_per_kWh: 1.14 }
-]
+const fetch = await priceLoader.fetchHourData()
 
-// Call the method with your data
-const averagePrice = calculate.calculateAvaragePrice(data)
-const standardDeviationPrice = calculate.calculateStandardDeviation(data)
-const medianPrice = calculate.calculateMedianPrice(data)
-const minimumPrice = calculate.calculateMinimumPrice(data)
-const maximumPrice = calculate.calculateMaximumPrice(data)
+const seKPerKWhValues = fetch[3].prices.filter(item => item.SEK_per_kWh)
 
-// Output the calculated prices
+const averagePrice = calculate.calculateAvaragePrice(seKPerKWhValues)
+const standardDeviationPrice = calculate.calculateStandardDeviation(seKPerKWhValues)
+const medianPrice = calculate.calculateMedianPrice(seKPerKWhValues)
+const minimumPrice = calculate.calculateMinimumPrice(seKPerKWhValues)
+const maximumPrice = calculate.calculateMaximumPrice(seKPerKWhValues)
+
 console.log(`Average Price: ${averagePrice}`)
 console.log(`Standarddeviation Price: ${standardDeviationPrice}`)
 console.log(`Median Price: ${medianPrice}`)
@@ -37,12 +33,14 @@ try {
 } catch (error) {
   console.error('Test failed: It should not have thrown an error for valid array input.')
 }
-const expextedAveragePrice = 1.163333333333333
+// Jag valade istället att testa den riktiga datan som hämtas från API:et, men lite svårt att vet hur lågt eller hur högt kWh priset kan vara. Jag kollade på det historiska datat och såg att ibland låg det på 100.05 och som lägst -4.0 i snitt priset.
+const expectedMinValue = -7.86
+const expectedMaxValue = 107.14
 
-if (averagePrice === expextedAveragePrice) {
-  console.log(`Test passed: Average Price: ${averagePrice} matches the expected value.`)
+if (averagePrice >= expectedMinValue && averagePrice <= expectedMaxValue) {
+  console.log('Test passed: Average Price within expected range.')
 } else {
-  console.log(`Test falied: Average Price: ${averagePrice} does not match the expected value.`)
+  console.log('Test failed: Average Price outside the expected range.')
 }
 
 const expectedMedianPrice = 1.15

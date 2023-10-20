@@ -4,35 +4,140 @@ import { ElectricityPriceHistoricalView } from '../src/electricity-price-histori
 const displayHistorical = new ElectricityPriceHistoricalView()
 const displayToday = new ElectricityPriceTodayView()
 
-const year = 2023
-const month = '07'
-const day = '16'
+const compareData1 = {
+  region: 'SE1',
+  date: '2023-09-15'
+}
 
-const year1 = 2023
-const month1 = '08'
-const day1 = '16'
+const compareData2 = {
+  region: 'SE3',
+  date: '2023-09-16'
+}
 
-const year2 = 2023
-const month2 = '09'
-const day2 = '18'
+let testsPassed = 0
+let testsFailed = 0
+const selectedDate = '2023-10-20'
+const condition = true
 
-const regionCode1 = '1'
-const regionCode2 = '3'
+if (condition) {
+  try {
+    await displayHistorical.fetchHistoricalDataAverage(selectedDate)
+    console.log('Fetch succeeded for historical calculation data')
+    testsPassed++
+  } catch (error) {
+    console.error('Fetch failed for historical calculation data')
+    console.error(error)
+    testsFailed++
+  }
+}
 
-const selectedDate = '2023-07-16'
+if (condition) {
+  try {
+    await displayHistorical.fetchHistoricalData(selectedDate)
+    console.log('Fetch succeeded for historical calculation data')
+    testsPassed++
+  } catch (error) {
+    console.error('Fetch failed for historical calculation data')
+    console.error(error)
+    testsFailed++
+  }
+}
 
-//displayHistorical.compareHistoricalData(year1, month1, day1, year2, month2, day2, regionCode1, regionCode2)
-//displayHistorical.printHistoricalDataCalculation(year, month, day)
-//displayHistorical.printHourDataHistorical(year, month, day)
-const fetchHistoricalData = await displayHistorical.fetchHistoricalData(selectedDate)
-console.log(fetchHistoricalData)
-const fetchHourPriceHistorical = await displayHistorical.fetchHistoricalHourPrice(selectedDate)
-console.log(fetchHourPriceHistorical[0])
-//displayToday.printTodayDataCalculation()
-//displayToday.printHourDataToday()
-//const fetchHourData = await displayToday.fetchHourData(2023, '07', '16')
-//console.log(fetchHourData[0])
-//const fetchTodayDataCalculation = await displayToday.fetchTodayDataCalculation(2023, '07', '16')
-//console.log(fetchTodayDataCalculation)
+if (condition) {
+  try {
+    await displayHistorical.fetchHistoricalHourPrice(selectedDate)
+    console.log('Fetch succeeded for historical hour price')
+    testsPassed++
+  } catch (error) {
+    console.error('Fetch failed for historical hour price')
+    console.error(error)
+    testsFailed++
+  }
+}
 
+if (condition) {
+  try {
+    await displayToday.fetchHourData(selectedDate)
+    console.log('Fetch succeeded for hour data')
+    testsPassed++
+  } catch (error) {
+    console.error('Fetch failed for hour data')
+    console.error(error)
+    testsFailed++
+  }
+}
 
+if (condition) {
+  try {
+    await displayToday.fetchTodayDataCalculation(selectedDate)
+    console.log('Fetch succeeded for today data calculation')
+    testsPassed++
+  } catch (error) {
+    console.error('Fetch failed for today data calculation')
+    console.error(error)
+    testsFailed++
+  }
+}
+
+if (condition) {
+  try {
+    await displayHistorical.printHistoricalDataCalculation(2023, '07', '16')
+    console.log('Print succeeded for historical data calculation')
+    testsPassed++
+  } catch (error) {
+    console.error('Print failed for historical data calculation')
+    console.error(error)
+    testsFailed++
+  }
+}
+
+if (condition) {
+  try {
+    await displayHistorical.printHourDataHistorical()
+    console.log('Print succeeded for historical hour data')
+    testsPassed++
+  } catch (error) {
+    console.error('Print failed for historical hour data')
+    console.error(error)
+    testsFailed++
+  }
+}
+
+if (condition) {
+  try {
+    await displayToday.printTodayDataCalculation()
+    console.log('Print succeeded for today data calculation')
+    testsPassed++
+  } catch (error) {
+    console.error('Print failed for today data calculation')
+    console.error(error)
+    testsFailed++
+  }
+}
+
+if (condition) {
+  try {
+    await displayToday.printHourDataToday()
+    console.log('Print succeeded for today hour data')
+    testsPassed++
+  } catch (error) {
+    console.error('Print failed for today hour data')
+    console.error(error)
+    testsFailed++
+  }
+}
+
+if (condition) {
+  try {
+    await displayHistorical.compareHistoricalData(compareData1, compareData2)
+    console.log('Fetch succeeded for comparing historical data')
+    testsPassed++
+  } catch (error) {
+    console.error('Fetch failed for comparing historical data')
+    console.error(error)
+    testsFailed++
+  }
+}
+
+console.log(`Tests Passed: ${testsPassed} / ${testsPassed + testsFailed}`)
+console.log(`Tests Failed: ${testsFailed} / ${testsFailed + testsPassed}`)
