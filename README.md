@@ -20,7 +20,12 @@ The Swedish Electricity Price Calculator is a Node.js module that allows you to 
    - [Fetching Electricity Price Data Today](#fetching-electricity-price-data)
    - [Fetching Electricity Price Data Historical](#fetching-electricity-price-data-historical)
    - [Comparing Prices](#comparing-prices)
-4. [License](#license)
+4. [Status](#status)
+5. [Who Can Contribute](#who-can-contribute)
+6. [Future Plans](#future-plans)
+7. [License](#license)
+
+## 
 
 ## Installation
 
@@ -151,20 +156,46 @@ import { ElectricityPriceHistoricalView } from 'swedish-electricity-prices-regio
 
 const displayHistorical = new ElectricityPriceHistoricalView()
 
-const year1 = 2023
-const month1 = '08'
-const day1 = '16'
+const compareData1 = {
+  region: 'SE3',
+  date: '2023-09-15'
+}
 
-const year2 = 2023
-const month2 = '09'
-const day2 = '18'
+const compareData2 = {
+  region: 'SE1',
+  date: '2023-09-16'
+}
 
-const regionCode1 = '1'
-const regionCode2 = '3'
-
-displayHistorical.compareHistoricalData(year1, month1, day1, year2, month2, day2, regionCode1, regionCode2)
+displayHistorical.compareHistoricalData(compareData1, compareData2)
 
 ```
+
+## Status
+
+This project is currently in a stable state. However, there may be occasional bug fixes or minor updates.
+
+For the latest information on the project's status, please refer to the [Changelog](CHANGELOG.md).
+
+## Who Can Contribute
+
+Contributions to this project are welcome! If you want to contribute, here's how you can help:
+
+- Report issues or bugs: Please use the [Issue Tracker](https://github.com/nellyolofsson/L2/issues) to report any problems or suggest improvements.
+- Contribute code: If you're interested in contributing code, feel free to fork the repository and submit a pull request with your changes.
+
+I appreciate the support and contributions of the open-source community.
+
+
+## Future Plans
+
+Future plans for this project include:
+
+- Enhancing the documentation to make it more accessible and informative.
+- Improving error handling and providing more informative error messages.
+- Adding more features and functionality to the project.
+
+I'am open to feedback and suggestions. If you have any feature requests or ideas for improvements, please let me know through the [Issue Tracker](https://github.com/nellyolofsson/L2/issues).
+
 ## License
 
 This project is licensed under the [ISC License](LICENSE.md) - see the [license file](LICENSE.md) for details.
