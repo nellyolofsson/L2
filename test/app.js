@@ -14,9 +14,9 @@ const compareData2 = {
   date: '2023-09-16'
 }
 
+const selectedDate = '2023-10-20'
 let testsPassed = 0
 let testsFailed = 0
-const selectedDate = '2023-10-20'
 const condition = true
 
 if (condition) {
