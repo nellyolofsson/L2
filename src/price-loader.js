@@ -39,11 +39,6 @@ export class PriceLoader {
     return Promise.all(dataPromises)
   }
 
-  /**
-   * Fetches today's electricity price data for multiple regions.
-   *
-   * @returns {Array} A promise that resolves to an array of filtered price data objects.
-   */
   async getTodayPrice () {
     const currentDate = new Date()
     const year = currentDate.getFullYear()
@@ -59,10 +54,6 @@ export class PriceLoader {
     return this.#fetchDataAndFilter(year, month, day, regionCodes)
   }
 
-  /**
-   * Fetches and filters electricity price data for specified regions and date, handling errors.
-   *
-   */
   async #fetchDataAndFilter (year, month, day, regionCodes) {
     try {
       const regionData = await this.#fetchDataElectricity(year, month, day, regionCodes)

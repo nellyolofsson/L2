@@ -37,6 +37,13 @@ export class PriceCalculatorGenerator {
     }
   }
 
+  #generateAveragePriceCalculation (prices) {
+    const averagePrice = this.#calculator.calculateAvaragePrice(prices)
+    return {
+      averagePrice
+    }
+  }
+
   /**
    * Generates statistics for today's electricity price data.
    *
@@ -53,14 +60,24 @@ export class PriceCalculatorGenerator {
   }
 
   /**
-   * Generates statistics for historical electricity price data.
+   * Generates statistics for historical electricity average price data.
    *
    * @param {number} year - The year.
    * @param {number} month - The month.
    * @param {number} day - The day.
    * @returns {object} An object containing historical price statistics.
    */
-  async generateHistoricalPriceCalclation (year, month, day) {
+  async generateHistoricalPriceAverageCalculation (year, month, day) {
+    const historicalData = await this.#priceLoader.getHistoricalPrice(year, month, day)
+    const priceStatistics = {}
+    for (const regionCode in historicalData) {
+      const prices = historicalData[regionCode].prices
+      priceStatistics[regionCode] = this.#generateAveragePriceCalculation(prices)
+    }
+    return priceStatistics
+  }
+
+  async generateHistoricalPriceCalculation (year, month, day) {
     const historicalData = await this.#priceLoader.getHistoricalPrice(year, month, day)
     const priceStatistics = {}
     for (const regionCode in historicalData) {

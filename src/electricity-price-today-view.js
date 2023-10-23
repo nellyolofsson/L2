@@ -1,7 +1,6 @@
 import { PriceCalculatorGenerator } from './price-calculator-generator.js'
 import { PriceLoader } from './price-loader.js'
 
-// Define region names for mapping region codes.
 const regionNames = {
   0: 'Norra Sverige',
   1: 'Norra mellan Sverige',
@@ -24,10 +23,6 @@ export class ElectricityPriceTodayView {
     this.#dataloader = new PriceLoader()
   }
 
-  /**
-   * Displays the hourly electricity price for today in different regions.
-   *
-   */
   async #displayHourPrice (regionCode, stats) {
     const regionName = regionNames[regionCode] || 'Unknown Region'
 

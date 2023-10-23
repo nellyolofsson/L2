@@ -18,7 +18,7 @@ export class Calculator {
 
     const totalSum = filteredData.reduce((sum, item) => sum + item.SEK_per_kWh, 0)
     const averagePrice = (totalSum / filteredData.length)
-    const formattedAveragePrice = (parseFloat(averagePrice) * 100).toFixed(2)
+    const formattedAveragePrice = (parseFloat(averagePrice) * 100)
     return formattedAveragePrice
   }
 
@@ -26,36 +26,40 @@ export class Calculator {
    * Calculates the StandardDeviation price from the input data.
    *
    * @param {Array} data - An array of price data objects.
-   * @returns {number} The calculated StandardDeviation price.
+   * @returns {number} The calculated StandardDeviation price in SEK per kWh.
    */
   calculateStandardDeviation (data) {
     this.faultHandling(data)
 
     const flattenedPriceData = data.flat()
 
-    const filterData = flattenedPriceData.filter(item => item.SEK_per_kWh !== undefined).map(item => item.SEK_per_kWh)
+    const filterData = flattenedPriceData
+      .filter(item => item.SEK_per_kWh !== undefined)
+      .map(item => item.SEK_per_kWh)
 
     if (filterData.length === 0) {
       return 0
     }
-    const mean = this.calculateAvaragePrice(data)
+    const mean = this.calculateAvaragePrice(data) / 100 // Convert back to decimal
     const difference = filterData.map(item => Math.pow(item - mean, 2))
-    const varriance = difference.reduce((sum, item) => sum + item, 0) / difference.length
-    return Math.sqrt(varriance)
+    const variance = difference.reduce((sum, item) => sum + item, 0) / difference.length
+    return Math.sqrt(variance) * 100 // Convert back to whole numbers
   }
 
   /**
    * Calculates the median price from the input data.
    *
    * @param {Array} data - An array of price data objects.
-   * @returns {number} The calculated median price.
+   * @returns {number} The calculated median price in SEK per kWh.
    */
   calculateMedianPrice (data) {
     this.faultHandling(data)
 
     const flattenedPriceData = data.flat()
 
-    const filterData = flattenedPriceData.filter(item => item.SEK_per_kWh !== undefined).map(item => item.SEK_per_kWh)
+    const filterData = flattenedPriceData
+      .filter(item => item.SEK_per_kWh !== undefined)
+      .map(item => item.SEK_per_kWh)
 
     if (filterData.length === 0) {
       return 0
