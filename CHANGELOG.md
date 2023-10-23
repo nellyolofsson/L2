@@ -32,3 +32,8 @@
 - Added a new method in PriceCalculatorGenerator.js called generateAveragePriceCalculation
 - Added a new method in PriceCalculatorGenerator.js called generateHistoricalPriceAverageCalculation
 - Some changes in the README.md file
+
+### 1.0.5
+
+- Sixth release
+- Some minor changes in the README.md file the license file and the changelog file

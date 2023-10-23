@@ -174,7 +174,7 @@ displayHistorical.compareHistoricalData(compareData1, compareData2)
 
 This project is currently in a stable state. However, there may be occasional bug fixes or minor updates.
 
-For the latest information on the project's status, please refer to the [Changelog](CHANGELOG.md).
+For the latest information on the project's status, please refer to the [Changelog](https://github.com/nellyolofsson/L2/blob/main/CHANGELOG.md).
 
 ## Who Can Contribute
 
@@ -198,7 +198,7 @@ I'am open to feedback and suggestions. If you have any feature requests or ideas
 
 ## License
 
-This project is licensed under the [ISC License](LICENSE.md) - see the [license file](LICENSE.md) for details.
+This project is licensed under the [ISC License](https://github.com/nellyolofsson/L2/blob/main/LICENSE.md) - see the [license file](https://github.com/nellyolofsson/L2/blob/main/LICENSE.md) for details.
 
 
 
